@@ -30,9 +30,9 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-    # Modo híbrido (Prime offload o hybrid mode)
     prime = {
-      sync.enable = offload; # O usa offload si prefieres ahorrar batería activando la Nvidia solo bajo demanda
+      offload.enable = true;
+      offload.enableOffloadCmd = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
@@ -49,7 +49,7 @@
   };
 
   # Usuario del sistema
-  users.users.tu-usuario = {
+  users.users.jose = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     shell = pkgs.zsh; # O bash

@@ -23,6 +23,7 @@
       ../../common/nvidia.nix
     ];
   
+    # Configuración de Hardware Híbrido (Intel + NVIDIA RTX 4090)
     # Aquí dejas solo lo que es exclusivo de este equipo (como los BusID del modo Prime offload)
     hardware.nvidia.prime = {
       offload.enable = true;

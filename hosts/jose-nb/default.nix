@@ -10,7 +10,7 @@
 
   # Configuración de Zonas Horarias y Locale
   time.timeZone = "America/Argentina/Buenos_Aires"; # Cambia la tuya si es necesario
-  i18n.defaultLocale = "es_ES.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # Entorno gráfico: KDE Plasma con Wayland
   services.xserver.enable = true;
@@ -32,7 +32,7 @@
 
     # Modo híbrido (Prime offload o hybrid mode)
     prime = {
-      sync.enable = true; # O usa offload si prefieres ahorrar batería activando la Nvidia solo bajo demanda
+      sync.enable = offload; # O usa offload si prefieres ahorrar batería activando la Nvidia solo bajo demanda
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };

@@ -8,7 +8,7 @@
     ../../modules/user-common.nix
   ];
 
-# Tus aplicaciones de usuario cotidianas
+  # Tus aplicaciones de usuario cotidianas
   home.packages = with pkgs; [
     discord
   ];

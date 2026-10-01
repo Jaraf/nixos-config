@@ -18,8 +18,11 @@
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
 
+  networking.hostName = "jose-nb";
+
   {
     imports = [
+      ../../modules/system-common.nix
       ../../common/nvidia.nix
     ];
   
@@ -49,14 +52,6 @@
     extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     shell = pkgs.zsh; # O bash
   };
-
-  # Paquetes base del sistema
-  environment.systemPackages = with pkgs; [
-    git
-    wget
-    curl
-    vim
-  ];
 
   system.stateVersion = "26.05"; # Versión inicial del sistema
 }

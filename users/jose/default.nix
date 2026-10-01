@@ -4,14 +4,13 @@
   home.username = "jose";
   home.homeDirectory = "/home/jose";
 
-  # Tus aplicaciones de usuario cotidianas
+  imports = [
+    ../../modules/user-common.nix
+  ];
+
+# Tus aplicaciones de usuario cotidianas
   home.packages = with pkgs; [
-    firefox
-    vscode
-    htop
-    fastfetch
     discord
-    vlc
   ];
 
   # Habilitar gestor de sesiones de usuario

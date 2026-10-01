@@ -21,7 +21,7 @@
   networking.hostName = "jose-nb";
 
   imports = [
-    ../../modules/system-common.nix
+    ../../modules/hosts-apps.nix
     ../../common/nvidia.nix
   ];
   

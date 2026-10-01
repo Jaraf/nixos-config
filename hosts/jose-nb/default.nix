@@ -18,9 +18,6 @@
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
 
-  # Configuración de Hardware Híbrido (Intel + NVIDIA RTX 4090)
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.graphics.enable = true;
   {
     imports = [
       ../../common/nvidia.nix

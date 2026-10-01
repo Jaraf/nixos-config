@@ -1,8 +1,8 @@
 {
-  description = "Configuración de NixOS para MSI Vector GP78HX";
+  description = "jose-nb - NixOS para MSI Vector GP78HX";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # O usa nixos-24.11 si prefieres estabilidad estricta
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

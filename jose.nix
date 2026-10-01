@@ -14,8 +14,8 @@
       msi-vector = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/msi-vector/hardware-configuration.nix
-          ./hosts/msi-vector/default.nix
+          ./hosts/jose-nb/hardware-configuration.nix
+          ./hosts/jose-nb/default.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

@@ -20,7 +20,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jose = import ./users/tu-usuario/default.nix;
+            home-manager.users.jose = import ./users/jose/default.nix;
           }
         ];
       };

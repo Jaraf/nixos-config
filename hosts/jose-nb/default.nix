@@ -21,22 +21,19 @@
   # Configuración de Hardware Híbrido (Intel + NVIDIA RTX 4090)
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics.enable = true;
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = true;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-    prime = {
+  {
+    imports = [
+      ../../common/nvidia.nix
+    ];
+  
+    # Aquí dejas solo lo que es exclusivo de este equipo (como los BusID del modo Prime offload)
+    hardware.nvidia.prime = {
       offload.enable = true;
       offload.enableOffloadCmd = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
-  };
+  }
 
   # Audio (Pipewire)
   services.pulseaudio.enable = false;

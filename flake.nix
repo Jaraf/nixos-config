@@ -11,7 +11,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
-      msi-vector = nixpkgs.lib.nixosSystem {
+      jose-nb = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/jose-nb/hardware-configuration.nix

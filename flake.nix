@@ -1,5 +1,5 @@
 {
-  description = "Casa";
+  description = "NixOS Configuración Modular Global";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -10,8 +10,10 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+    
+    # 1. Opción Global: sudo nixos-rebuild switch --flake .#jose-nb
     nixosConfigurations = {
-      jose-nb = nixpkgs.lib.nixosSystem {
+      "jose-nb" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/jose-nb/hardware-configuration.nix
@@ -25,5 +27,14 @@
         ];
       };
     };
+
+    # 2. Opción Standalone (Usuario sin root): home-manager switch --flake .#jose@jose-nb
+    homeConfigurations = {
+      "jose@jose-nb" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [ ./users/jose/default.nix ];
+      };
+    };
+
   };
 }

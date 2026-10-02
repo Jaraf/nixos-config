@@ -1,48 +1,31 @@
 { config, pkgs, ... }:
 
 {
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  imports = [
+    ../../common/hosts-apps.nix
+    ../../common/nvidia.nix
+  ];
 
+  # Identidad de la red
   networking.hostName = "jose-nb"; 
   networking.networkmanager.enable = true;
 
   # Configuración de Zonas Horarias y Locale
-  time.timeZone = "America/Argentina/Buenos_Aires"; # Cambia la tuya si es necesario
+  time.timeZone = "America/Argentina/Buenos_Aires";
   i18n.defaultLocale = "en_US.UTF-8";
+
+  # Bootloader y sincronización del espejo EFI en ambos NVMe
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.extraInstallCommands = ''
+    ${pkgs.rsync}/bin/rsync -av --delete /boot/ /boot/backup/
+  '';
 
   # Entorno gráfico: KDE Plasma con Wayland
   services.xserver.enable = true;
   services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-
-  {
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-    # NixOS permite configurar múltiples rutas EFI para que se escriban 
-    # los cambios del kernel en ambos discos simultáneamente
-    boot.loader.systemd-boot.extraInstallCommands = ''
-      ${pkgs.rsync}/bin/rsync -av --delete /boot/ /boot/backup/
-    '';
-  };
-
-  imports = [
-    ../../common/hosts-apps.nix
-    ../../common/nvidia.nix
-  ];
-  
-  {
-    # Configuración de Hardware Híbrido (Intel + NVIDIA RTX 4090)
-    # Aquí dejas solo lo que es exclusivo de este equipo (como los BusID del modo Prime offload)
-    hardware.nvidia.prime = {
-      offload.enable = true;
-      offload.enableOffloadCmd = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-  }
 
   # Audio (Pipewire)
   services.pulseaudio.enable = false;
@@ -61,5 +44,5 @@
     shell = pkgs.bash;
   };
 
-  system.stateVersion = "26.05"; # Versión inicial del sistema
+  system.stateVersion = "26.05";
 }

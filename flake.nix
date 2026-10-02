@@ -1,5 +1,5 @@
 {
-  description = "jose-nb - NixOS para MSI Vector GP78HX";
+  description = "Casa";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

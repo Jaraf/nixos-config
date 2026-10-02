@@ -8,5 +8,6 @@
     vim
     htop
     fastfetch
+    mc
   ];
 }

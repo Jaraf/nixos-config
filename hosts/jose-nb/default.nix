@@ -18,6 +18,16 @@
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
 
+  {
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
+    # NixOS permite configurar múltiples rutas EFI para que se escriban 
+    # los cambios del kernel en ambos discos simultáneamente
+    boot.loader.systemd-boot.extraInstallCommands = ''
+      ${pkgs.rsync}/bin/rsync -av --delete /boot/ /boot/backup/
+    '';
+  };
+
   imports = [
     ../../common/hosts-apps.nix
     ../../common/nvidia.nix

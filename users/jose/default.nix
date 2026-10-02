@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/jose";
 
   imports = [
-    ../../modules/user-apps.nix
+    ../../common/user-apps.nix
   ];
 
   # Tus aplicaciones de usuario cotidianas

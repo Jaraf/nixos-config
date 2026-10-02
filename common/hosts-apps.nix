@@ -2,12 +2,12 @@
 
 {
   environment.systemPackages = with pkgs; [
-    git
-    wget
     curl
-    vim
-    htop
     fastfetch
+    git
+    htop
     mc
+    vim
+    wget
   ];
 }

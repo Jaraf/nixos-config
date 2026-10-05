@@ -20,7 +20,7 @@
               zfs = {
                 size = "100%";
                 content = {
-                  type = "zpool";
+                  type = "zfs";
                   pool = "rpool";
                 };
               };
@@ -45,7 +45,7 @@
               zfs = {
                 size = "100%";
                 content = {
-                  type = "zpool";
+                  type = "zfs";
                   pool = "rpool";
                 };
               };

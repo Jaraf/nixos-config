@@ -48,5 +48,6 @@
     shell = pkgs.bash;
   };
 
+  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "26.05";
 }

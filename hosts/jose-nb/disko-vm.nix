@@ -57,7 +57,10 @@
         rpool = {
           type = "zpool";
           mode = "mirror";
-          # Especificamos los vdevs explícitamente para asegurar que disko ejecute 'zpool create' con ambas particiones
+          rootFsOptions = {
+            compression = "zstd";
+            "com.sun:auto-snapshot" = "false";
+          };
           datasets = {
             root = {
               type = "zfs_fs";

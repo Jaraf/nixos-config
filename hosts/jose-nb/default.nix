@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  hardware.cpu.intel.updateMicrocode = true;
   imports = [
+    ./disko.nix
     ../../common/hosts-apps.nix
     ../../common/nvidia.nix
   ];
@@ -15,6 +17,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Bootloader y sincronización del espejo EFI en ambos NVMe
+  boot.supportedFilesystems = [ "zfs" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.extraInstallCommands = ''

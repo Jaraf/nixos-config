@@ -18,7 +18,7 @@
       "jose-nb" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/jose-nb/hardware-configuration.nix
+          disko.nixosModules.disko
           ./hosts/jose-nb/default.nix
           home-manager.nixosModules.home-manager
           {

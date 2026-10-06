@@ -20,18 +20,8 @@
               zfs = {
                 size = "100%";
                 content = {
-                  type = "zpool";
+                  type = "zfs";
                   pool = "rpool";
-                  datasets = {
-                    root = {
-                      type = "zfs_fs";
-                      mountpoint = "/";
-                    };
-                    home = {
-                      type = "zfs_fs";
-                      mountpoint = "/home";
-                    };
-                  };
                 };
               };
             };
@@ -55,20 +45,30 @@
               zfs = {
                 size = "100%";
                 content = {
-                  type = "zpool";
+                  type = "zfs";
                   pool = "rpool";
-                  datasets = {
-                    root = {
-                      type = "zfs_fs";
-                      mountpoint = "/";
-                    };
-                    home = {
-                      type = "zfs_fs";
-                      mountpoint = "/home";
-                    };
-                  };
                 };
               };
+            };
+          };
+        };
+      };
+      zpool = {
+        rpool = {
+          type = "zpool";
+          mode = "mirror";
+          rootFsOptions = {
+            compression = "zstd";
+            "com.sun:auto-snapshot" = "false";
+          };
+          datasets = {
+            root = {
+              type = "zfs_fs";
+              mountpoint = "/";
+            };
+            home = {
+              type = "zfs_fs";
+              mountpoint = "/home";
             };
           };
         };
@@ -76,3 +76,4 @@
     };
   };
 }
+

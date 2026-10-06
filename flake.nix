@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
     
     # 1. Opción Global: sudo nixos-rebuild switch --flake .#jose-nb
     nixosConfigurations = {

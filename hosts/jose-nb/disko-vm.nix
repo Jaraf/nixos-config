@@ -4,7 +4,8 @@
       disk = {
         nvme0 = {
           type = "disk";
-          device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0";
+          # device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0";
+          device = "/dev/sda";
           content = {
             type = "gpt";
             partitions = {
@@ -29,7 +30,8 @@
         };
         nvme1 = {
           type = "disk";
-          device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1";
+          # device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1";
+          device = "/dev/sdb";
           content = {
             type = "gpt";
             partitions = {

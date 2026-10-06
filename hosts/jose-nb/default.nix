@@ -19,6 +19,7 @@
 
   # Bootloader y sincronización del espejo EFI en ambos NVMe
   boot.supportedFilesystems = [ "zfs" ];
+  boot.initrd.supportedFilesystems = [ "zfs" ]; # <-- Esto es clave para que el initrd pueda importar pools antes de montar la raíz
   boot.zfs.devNodes = "/dev/disk/by-id";
   boot.zfs.forceImportRoot = true;
   boot.loader.systemd-boot.enable = true;

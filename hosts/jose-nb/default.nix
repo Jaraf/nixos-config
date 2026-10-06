@@ -23,6 +23,18 @@
   boot.initrd.supportedFilesystems = [ "zfs" ]; # <-- Esto es clave para que el initrd pueda importar pools antes de montar la raíz
   # boot.zfs.devNodes = "/dev/disk/by-id";
   boot.zfs.forceImportRoot = true;
+
+# Forzar la importación explícita en el initrd antes de que systemd busque el servicio automático
+  boot.initrd.systemd.services."zfs-import-rpool" = {
+    script = ''
+      ${pkgs.zfs}/bin/zpool import -d /dev/sda -d /dev/sdb -f rpool || true
+    '';
+    before = [ "sysroot.mount" ];
+    requiredBy = [ "sysroot.mount" ];
+    after = [ "udev.service" ];
+    defaultTarget = false;
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.extraInstallCommands = ''

@@ -19,7 +19,7 @@
 
   # Bootloader y sincronización del espejo EFI en ambos NVMe
   boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportRoot = false;
+  boot.zfs.forceImportRoot = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.extraInstallCommands = ''

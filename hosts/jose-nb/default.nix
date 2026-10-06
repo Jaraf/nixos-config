@@ -48,6 +48,7 @@
     shell = pkgs.bash;
   };
 
+  boot.zfs.forceImportRoot = false;
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "26.05";
 }

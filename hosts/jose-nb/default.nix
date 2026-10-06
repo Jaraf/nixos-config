@@ -11,7 +11,7 @@
   # Identidad de la red
   networking.hostName = "jose-nb"; 
   networking.networkmanager.enable = true;
-  networking.hostId = "9d3e8f61"
+  networking.hostId = "9d3e8f61";
 
   # Configuración de Zonas Horarias y Locale
   time.timeZone = "America/Argentina/Buenos_Aires";

@@ -61,9 +61,6 @@
             compression = "zstd";
             "com.sun:auto-snapshot" = "false";
           };
-          options.cachefile = "none";
-          # Declaramos explícitamente los miembros del espejo basados en las particiones creadas
-          # (disko busca por defecto el nombre de la partición 'zfs' en cada disco)
           datasets = {
             root = {
               type = "zfs_fs";

@@ -1,8 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, modulesPath, ... }:
 
 {
   hardware.cpu.intel.updateMicrocode = true;
   imports = [
+    (modulesPath + "/profiles/qemu-guest.nix")
     ./disko-vm.nix
     ../../common/hosts-apps.nix
     ../../common/nvidia.nix
@@ -23,12 +24,15 @@
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
 
-  # Asegurar que los drivers de discos y controladores se incluyan en el initrd
+  # Módulos exactos descubiertos por el perfil de QEMU y almacenamiento
   boot.initrd.availableKernelModules = [
-    "virtio_net"
-    "virtio_blk"
+    "uhci_hcd"
+    "ehci_pci"
+    "ahci"
+    "virtio_pci"
     "virtio_scsi"
-    "nvme"
+    "sd_mod"
+    "sr_mod"
     "zfs"
   ];
 

@@ -30,9 +30,11 @@
       ${pkgs.systemd}/bin/udevadm settle || true
       
       for i in {1..30}; do
-        if ${pkgs.zfs}/bin/zpool import -d /dev/sda -d /dev/sdb -f rpool; then
-          echo "Pool rpool imported successfully!"
-          exit 0
+        if [ -e /dev/sda ] && [ -e /dev/sdb ]; then
+          if ${pkgs.zfs}/bin/zpool import -d /dev/sda -d /dev/sdb -f rpool; then
+            echo "Pool rpool imported successfully!"
+            exit 0
+          fi
         fi
         sleep 1
       done

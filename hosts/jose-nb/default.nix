@@ -23,8 +23,8 @@
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
 
-  # Asegurar que los drivers de discos y controladores se carguen de inmediato en el initrd
-  boot.initrd.kernelModules = [
+  # Asegurar que los drivers de discos y controladores se incluyan en el initrd
+  boot.initrd.availableKernelModules = [
     "virtio_net"
     "virtio_blk"
     "virtio_scsi"

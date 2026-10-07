@@ -27,17 +27,9 @@
   # Forzar la importación explícita con espera para udev en el initrd
   boot.initrd.systemd.services."zfs-import-rpool" = {
     script = ''
-      # Asegurar que udev terminó de registrar los dispositivos de bloque
       ${pkgs.systemd}/bin/udevadm settle || true
-      
-      # Intentar importar el pool con reintentos si los discos tardan en aparecer
-      for i in {1..10}; do
-        if ${pkgs.zfs}/bin/zpool import -d /dev/sda -d /dev/sdb -f rpool; then
-          break
-        fi
-        sleep 1
-      done
-    ''';
+      ${pkgs.zfs}/bin/zpool import -d /dev/sda -d /dev/sdb -f rpool || true
+    '';
     before = [ "sysroot.mount" ];
     requiredBy = [ "sysroot.mount" ];
     after = [ "udev.service" ];
@@ -46,7 +38,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.extraInstallCommands = ''
-    $${pkgs.rsync}/bin/rsync -av --delete /boot/ /boot/backup/
+    ${pkgs.rsync}/bin/rsync -av --delete /boot/ /boot/backup/
   '';
 
   # Entorno gráfico: KDE Plasma con Wayland

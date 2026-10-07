@@ -24,30 +24,39 @@
   # boot.zfs.devNodes = "/dev/disk/by-id";
   boot.zfs.forceImportRoot = true;
 
-# Desactivar la importación automática estándar para evitar conflictos en el initrd
-  boot.zfs.requestEncryptionCredentials = false;
-
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.initrd.supportedFilesystems = [ "zfs" ];
+  
+  # Desactivar los generadores automáticos de ZFS en el initrd que causan el conflicto
+  boot.zfs.enableUnstable = false;
+  
+  # Sobrescribir por completo el servicio systemd de importación en el initrd
   boot.initrd.systemd.services."zfs-import-rpool" = {
+    enable = true;
+    description = "Import ZFS pool rpool";
+    wantedBy = [ "sysroot.mount" ];
+    before = [ "sysroot.mount" ];
+    after = [ "udev-settle.service" ];
+    requires = [ "udev-settle.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
     script = ''
       export PATH="$PATH:${pkgs.zfs}/bin:${pkgs.systemd}/bin"
       
-      udevadm settle || true
-      
-      # Intentar importar usando los by-id reales de los discos virtuales de QEMU
+      echo "Esperando a que los discos estén listos..."
       for i in {1..30}; do
         if zpool import -d /dev/disk/by-id -f rpool; then
-          echo "Pool rpool imported successfully!"
+          echo "¡Pool rpool importado con éxito!"
           exit 0
         fi
         sleep 1
       done
       
-      echo "Failed to import rpool."
+      echo "Error: No se pudo importar el pool rpool."
       exit 1
     '';
-    before = [ "sysroot.mount" ];
-    requiredBy = [ "sysroot.mount" ];
-    after = [ "udev.service" ];
   };
 
   boot.loader.systemd-boot.enable = true;

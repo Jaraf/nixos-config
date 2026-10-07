@@ -20,13 +20,9 @@
   # Bootloader y sincronización del espejo EFI en ambos NVMe
   boot.initrd.systemd.emergencyAccess = true;
   boot.supportedFilesystems = [ "zfs" ];
-  boot.initrd.supportedFilesystems = [ "zfs" ]; # <-- Esto es clave para que el initrd pueda importar pools antes de montar la raíz
-  # boot.zfs.devNodes = "/dev/disk/by-id";
+  boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
-  
-  # Desactivar los generadores automáticos de ZFS en el initrd que causan el conflicto
-  boot.zfs.enableUnstable = false;
-  
+
   # Sobrescribir por completo el servicio systemd de importación en el initrd
   boot.initrd.systemd.services."zfs-import-rpool" = {
     enable = true;
@@ -53,7 +49,7 @@
       
       echo "Error: No se pudo importar el pool rpool."
       exit 1
-    '';
+    ''';
   };
 
   boot.loader.systemd-boot.enable = true;

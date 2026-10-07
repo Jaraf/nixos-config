@@ -28,7 +28,17 @@
   boot.initrd.systemd.services."zfs-import-rpool" = {
     script = ''
       ${pkgs.systemd}/bin/udevadm settle || true
-      ${pkgs.zfs}/bin/zpool import -d /dev/sda -d /dev/sdb -f rpool || true
+      
+      for i in {1..30}; do
+        if ${pkgs.zfs}/bin/zpool import -d /dev/sda -d /dev/sdb -f rpool; then
+          echo "Pool rpool imported successfully!"
+          exit 0
+        fi
+        sleep 1
+      done
+      
+      echo "Failed to import rpool after multiple attempts."
+      exit 1
     '';
     before = [ "sysroot.mount" ];
     requiredBy = [ "sysroot.mount" ];

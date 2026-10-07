@@ -23,10 +23,6 @@
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
 
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.initrd.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportRoot = true;
-
   # Desactivar explícitamente el servicio nativo de importación del initrd para evitar conflictos
   boot.initrd.systemd.services."zfs-import-rpool".enable = false;
 

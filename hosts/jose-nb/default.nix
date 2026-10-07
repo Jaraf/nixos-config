@@ -23,6 +23,15 @@
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
 
+  # Asegurar que los drivers de discos y controladores se carguen de inmediato en el initrd
+  boot.initrd.kernelModules = [
+    "virtio_net"
+    "virtio_blk"
+    "virtio_scsi"
+    "nvme"
+    "zfs"
+  ];
+
   # Desactivar explícitamente el servicio nativo de importación del initrd para evitar conflictos
   boot.initrd.systemd.services."zfs-import-rpool".enable = false;
 

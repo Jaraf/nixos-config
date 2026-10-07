@@ -23,7 +23,14 @@
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
 
-# Servicio personalizado initrd para importar el pool con reintentos
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.initrd.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = true;
+
+  # Desactivar explícitamente el servicio nativo de importación del initrd para evitar conflictos
+  boot.initrd.systemd.services."zfs-import-rpool".enable = false;
+
+  # Nuestro servicio personalizado con reintentos y ruta por ID
   boot.initrd.systemd.services."zfs-import-custom" = {
     description = "Custom import ZFS pool rpool with retry";
     wantedBy = [ "sysroot.mount" ];

@@ -24,22 +24,25 @@
   # boot.zfs.devNodes = "/dev/disk/by-id";
   boot.zfs.forceImportRoot = true;
 
-  # Forzar la importación explícita con espera para udev en el initrd
+# Desactivar la importación automática estándar para evitar conflictos en el initrd
+  boot.zfs.requestEncryptionCredentials = false;
+
   boot.initrd.systemd.services."zfs-import-rpool" = {
     script = ''
-      ${pkgs.systemd}/bin/udevadm settle || true
+      export PATH="$PATH:${pkgs.zfs}/bin:${pkgs.systemd}/bin"
       
+      udevadm settle || true
+      
+      # Intentar importar usando los by-id reales de los discos virtuales de QEMU
       for i in {1..30}; do
-        if [ -e /dev/sda ] && [ -e /dev/sdb ]; then
-          if ${pkgs.zfs}/bin/zpool import -d /dev/sda -d /dev/sdb -f rpool; then
-            echo "Pool rpool imported successfully!"
-            exit 0
-          fi
+        if zpool import -d /dev/disk/by-id -f rpool; then
+          echo "Pool rpool imported successfully!"
+          exit 0
         fi
         sleep 1
       done
       
-      echo "Failed to import rpool after multiple attempts."
+      echo "Failed to import rpool."
       exit 1
     '';
     before = [ "sysroot.mount" ];

@@ -23,9 +23,6 @@
   boot.initrd.supportedFilesystems = [ "zfs" ]; # <-- Esto es clave para que el initrd pueda importar pools antes de montar la raíz
   # boot.zfs.devNodes = "/dev/disk/by-id";
   boot.zfs.forceImportRoot = true;
-
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.initrd.supportedFilesystems = [ "zfs" ];
   
   # Desactivar los generadores automáticos de ZFS en el initrd que causan el conflicto
   boot.zfs.enableUnstable = false;

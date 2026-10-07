@@ -46,7 +46,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.extraInstallCommands = ''
-    ${pkgs.rsync}/bin/rsync -av --delete /boot/ /boot/backup/
+    $${pkgs.rsync}/bin/rsync -av --delete /boot/ /boot/backup/
   '';
 
   # Entorno gráfico: KDE Plasma con Wayland

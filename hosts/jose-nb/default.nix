@@ -23,19 +23,18 @@
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
 
-# Sobrescribir por completo el servicio systemd de importación en el initrd
   boot.initrd.systemd.services."zfs-import-rpool" = {
     enable = true;
-    description = "Import ZFS pool rpool";
-    wantedBy = [ "sysroot.mount" ];
-    before = [ "sysroot.mount" ];
-    after = [ "udev-settle.service" ];
-    requires = [ "udev-settle.service" ];
-    serviceConfig = {
+    description = lib.mkForce "Import ZFS pool rpool";
+    wantedBy = lib.mkForce [ "sysroot.mount" ];
+    before = lib.mkForce [ "sysroot.mount" ];
+    after = lib.mkForce [ "udev-settle.service" ];
+    requires = lib.mkForce [ "udev-settle.service" ];
+    serviceConfig = lib.mkForce {
       Type = "oneshot";
       RemainAfterExit = true;
     };
-    script = ''
+    script = lib.mkForce ''
       export PATH="$PATH:${pkgs.zfs}/bin:${pkgs.systemd}/bin"
       
       echo "Esperando a que los discos estén listos..."

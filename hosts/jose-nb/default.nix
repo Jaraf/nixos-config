@@ -23,7 +23,7 @@
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
 
-  # Sobrescribir por completo el servicio systemd de importación en el initrd
+# Sobrescribir por completo el servicio systemd de importación en el initrd
   boot.initrd.systemd.services."zfs-import-rpool" = {
     enable = true;
     description = "Import ZFS pool rpool";
@@ -49,7 +49,7 @@
       
       echo "Error: No se pudo importar el pool rpool."
       exit 1
-    ''';
+    '';
   };
 
   boot.loader.systemd-boot.enable = true;

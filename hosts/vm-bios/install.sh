@@ -1,1 +1,1 @@
-sudo nixos-install --flake .#jose-nb
+sudo nixos-install --flake .#vm-bios

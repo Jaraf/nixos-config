@@ -12,6 +12,7 @@
   boot.loader.grub = {
     enable = true;
     efiSupport = false;
+    mirroredBoots = []; # Fuerza a vaciar la lista de espejos duplicados
     device = "/dev/sda"; # Ajusta al nombre de tu disco en Proxmox (ej. /dev/sda o /dev/vda)
   };
 

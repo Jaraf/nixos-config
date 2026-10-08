@@ -3,14 +3,14 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/sda"; # Coincidente con boot.loader.grub.device
+        device = "/dev/sda";
         content = {
           type = "table";
           format = "msdos";
           partitions = [
             {
               name = "root";
-              size = "100%";
+              bootable = true;
               content = {
                 type = "filesystem";
                 format = "ext4";

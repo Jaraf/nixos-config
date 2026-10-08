@@ -1,25 +1,23 @@
 {
-  disko = {
-    devices = {
-      disk = {
-        nvme0 = {
-          type = "disk";
-          # device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0";
-          device = "/dev/sda";
-          content = {
-            type = "gpt";
-            partitions = {
-              esp = {
-                size = "1G";
-                type = "EF00";
-                content = {
-                  type = "filesystem";
-                  format = "vfat";
-                  mountpoint = "/boot";
-                };
+  disko.devices = {
+    disk = {
+      main = {
+        type = "disk";
+        device = "/dev/sda"; # Coincidente con boot.loader.grub.device
+        content = {
+          type = "table";
+          format = "msdos";
+          partitions = [
+            {
+              name = "root";
+              size = "100%";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/";
               };
-            };
-          };
+            }
+          ];
         };
       };
     };

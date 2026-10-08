@@ -24,6 +24,9 @@
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
 
+  # Importación nativa automática del pool en el initrd
+  boot.zfs.extraPools = [ "rpool" ];
+
   # Módulos exactos descubiertos por el perfil de QEMU y almacenamiento
   boot.initrd.availableKernelModules = [
     "uhci_hcd"
@@ -35,37 +38,6 @@
     "sr_mod"
     "zfs"
   ];
-
-  # Desactivar explícitamente el servicio nativo de importación del initrd para evitar conflictos
-  boot.initrd.systemd.services."zfs-import-rpool".enable = false;
-
-# Nuestro servicio personalizado de importación
-  boot.initrd.systemd.services."zfs-import-custom" = {
-    description = "Custom import ZFS pool rpool with retry";
-    wantedBy = [ "sysroot.mount" ];
-    before = [ "sysroot.mount" ];
-    after = [ "systemd-udev-settle.service" ];
-    requires = [ "systemd-udev-settle.service" ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-    };
-    script = ''
-      export PATH="$PATH:${pkgs.zfs}/bin:${pkgs.systemd}/bin"
-      
-      echo "Esperando a que los discos por ID estén listos..."
-      for i in {1..40}; do
-        if [ -e /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part1 ] && zpool import -d /dev/disk/by-id -f rpool; then
-          echo "¡Pool rpool importado con éxito!"
-          exit 0
-        fi
-        sleep 1
-      done
-      
-      echo "Error: No se pudo importar el pool rpool tras varios intentos."
-      exit 1
-    '';
-  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

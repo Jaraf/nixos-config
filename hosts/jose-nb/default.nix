@@ -18,16 +18,14 @@
   time.timeZone = "America/Argentina/Buenos_Aires";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Bootloader y sincronización del espejo EFI en ambos NVMe
+  # Bootloader y configuración de ZFS en el Initrd
   boot.initrd.systemd.emergencyAccess = true;
   boot.supportedFilesystems = [ "zfs" ];
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
-
-  # Importación nativa automática del pool en el initrd
   boot.zfs.extraPools = [ "rpool" ];
 
-  # Módulos exactos descubiertos por el perfil de QEMU y almacenamiento
+  # Módulos del kernel requeridos para almacenamiento y QEMU
   boot.initrd.availableKernelModules = [
     "uhci_hcd"
     "ehci_pci"
@@ -39,6 +37,7 @@
     "zfs"
   ];
 
+  # Gestor de arranque EFI y respaldo automático de /boot
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.extraInstallCommands = ''

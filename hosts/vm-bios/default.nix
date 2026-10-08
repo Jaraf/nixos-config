@@ -22,6 +22,9 @@
     # openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI..." ];
   };
 
+  # Habilitar el agente de QEMU para comunicación directa con Proxmox
+  services.qemuGuest.enable = true;
+
   # Habilitar SSH para administración remota
   services.openssh = {
     enable = true;

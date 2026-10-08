@@ -32,9 +32,20 @@
   };
 
   # Identidad de la red
-  networking.hostName = "harmonia"; 
-  networking.networkmanager.enable = true;
-  networking.enableIPv6 = false;
+  networking = {
+    hostName = "harmonia"; 
+    networkmanager.enable = true;
+    enableIPv6 = false;
+    useDHCP = false;
+    defaultGateway = "10.92.70.1";
+    nameservers = [ "10.92.70.1" ];
+    interfaces.eth0 = {
+      ipv4.addresses = [{
+        address = "10.92.70.19";
+        prefixLength = 24;
+      }];
+    };
+  };
 
   # Configuración de Zonas Horarias y Locale
   time.timeZone = "America/Argentina/Buenos_Aires";

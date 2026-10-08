@@ -11,6 +11,7 @@
   # Configuración de arranque BIOS (MBR)
   boot.loader.grub = {
     enable = true;
+    efiSupport = false;
     device = "/dev/sda"; # Ajusta al nombre de tu disco en Proxmox (ej. /dev/sda o /dev/vda)
   };
 

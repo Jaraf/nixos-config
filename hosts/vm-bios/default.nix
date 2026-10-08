@@ -10,9 +10,8 @@
 
   boot.loader.grub = {
     enable = true;
-    device = "/dev/sda";
+    devices = "/dev/sda";
     efiSupport = false;
-    mirroredBoots = lib.mkForce [ ];
   };
 
   # Permitir acceso directo a root

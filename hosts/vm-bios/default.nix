@@ -33,18 +33,20 @@
 
   # Identidad de la red
   networking = {
-    hostName = "harmonia"; 
+    hostName = "nixos"; 
     networkmanager.enable = true;
     enableIPv6 = false;
-    useDHCP = false;
-    defaultGateway = "10.92.70.1";
-    nameservers = [ "10.92.70.1" ];
-    interfaces.eth0 = {
-      ipv4.addresses = [{
-        address = "10.92.70.19";
-        prefixLength = 24;
-      }];
-    };
+    # useDHCP = false;
+    # defaultGateway = "10.92.70.1";
+    # nameservers = [ "10.92.70.1" ];
+    # interfaces.eth0 = {
+      # ipv4.addresses = [{
+        # address = "10.92.70.19";
+        # prefixLength = 24;
+      # }];
+    # };
+    # Harmonia - Abrir el puerto 5000 en el firewall para acceso en la LAN
+    # firewall.allowedTCPPorts = [ 5000 ];
   };
 
   # Configuración de Zonas Horarias y Locale

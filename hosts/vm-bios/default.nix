@@ -47,7 +47,6 @@
     "virtio_scsi"
     "sd_mod"
     "sr_mod"
-    "zfs"
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -32,7 +32,7 @@
   };
 
   # Identidad de la red
-  networking.hostName = "nixos"; 
+  networking.hostName = "harmonia"; 
   networking.networkmanager.enable = true;
 
   # Configuración de Zonas Horarias y Locale

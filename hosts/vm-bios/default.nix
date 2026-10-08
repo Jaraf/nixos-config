@@ -34,6 +34,7 @@
   # Identidad de la red
   networking.hostName = "harmonia"; 
   networking.networkmanager.enable = true;
+  networking.enableIPv6 = false;
 
   # Configuración de Zonas Horarias y Locale
   time.timeZone = "America/Argentina/Buenos_Aires";

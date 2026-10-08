@@ -8,6 +8,25 @@
     ../../common/hosts-apps.nix
   ];
 
+  # Configuración de arranque BIOS (MBR)
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda"; # Ajusta al nombre de tu disco en Proxmox (ej. /dev/sda o /dev/vda)
+  };
+
+  # Permitir acceso directo a root
+  users.users.root = {
+    initialPassword = "1234";
+    # O agrega tu clave SSH pública:
+    # openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI..." ];
+  };
+
+  # Habilitar SSH para administración remota
+  services.openssh = {
+    enable = true;
+    settings.PermitRootLogin = "yes";
+  };
+
   # Identidad de la red
   networking.hostName = "nixos"; 
   networking.networkmanager.enable = true;

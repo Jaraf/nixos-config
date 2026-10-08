@@ -39,7 +39,7 @@
   # Desactivar explícitamente el servicio nativo de importación del initrd para evitar conflictos
   boot.initrd.systemd.services."zfs-import-rpool".enable = false;
 
-# Nuestro servicio personalizado con reintentos robustos y espera de udev
+# Nuestro servicio personalizado de importación
   boot.initrd.systemd.services."zfs-import-custom" = {
     description = "Custom import ZFS pool rpool with retry";
     wantedBy = [ "sysroot.mount" ];

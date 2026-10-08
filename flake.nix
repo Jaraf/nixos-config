@@ -37,6 +37,18 @@
         modules = [ ./users/jose/default.nix ];
       };
     };
+    
+    # 3. Proxmox VM - BIOS
+    nixosConfigurations = {
+      "vm-bios" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          disko.nixosModules.disko
+          ./hosts/vm-bios/default.nix
+        ];
+      };
+    };
 
   };
 }
+

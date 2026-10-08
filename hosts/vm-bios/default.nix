@@ -8,10 +8,11 @@
     ../../common/hosts-apps.nix
   ];
 
+  # Configuración explícita para evitar duplicación en mirroredBoots
   boot.loader.grub = {
     enable = true;
-    devices = [ "/dev/sda" ];
     efiSupport = false;
+    devices = lib.mkForce [ "/dev/sda" ];
   };
 
   # Permitir acceso directo a root

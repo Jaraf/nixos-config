@@ -8,12 +8,11 @@
     ../../common/hosts-apps.nix
   ];
 
-  # Configuración de arranque BIOS (MBR)
   boot.loader.grub = {
     enable = true;
+    device = "/dev/sda";
     efiSupport = false;
-    mirroredBoots = []; # Fuerza a vaciar la lista de espejos duplicados
-    device = "/dev/sda"; # Ajusta al nombre de tu disco en Proxmox (ej. /dev/sda o /dev/vda)
+    mirroredBoots = lib.mkForce [ ];
   };
 
   # Permitir acceso directo a root

@@ -39,13 +39,13 @@
   # Desactivar explícitamente el servicio nativo de importación del initrd para evitar conflictos
   boot.initrd.systemd.services."zfs-import-rpool".enable = false;
 
-  # Nuestro servicio personalizado con reintentos y ruta por ID
+# Nuestro servicio personalizado con reintentos robustos y espera de udev
   boot.initrd.systemd.services."zfs-import-custom" = {
     description = "Custom import ZFS pool rpool with retry";
     wantedBy = [ "sysroot.mount" ];
     before = [ "sysroot.mount" ];
-    after = [ "udev-settle.service" ];
-    requires = [ "udev-settle.service" ];
+    after = [ "systemd-udev-settle.service" ];
+    requires = [ "systemd-udev-settle.service" ];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
@@ -53,16 +53,16 @@
     script = ''
       export PATH="$PATH:${pkgs.zfs}/bin:${pkgs.systemd}/bin"
       
-      echo "Esperando a que los discos estén listos..."
-      for i in {1..30}; do
-        if zpool import -d /dev/disk/by-id -f rpool; then
+      echo "Esperando a que los discos por ID estén listos..."
+      for i in {1..40}; do
+        if [ -e /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part1 ] && zpool import -d /dev/disk/by-id -f rpool; then
           echo "¡Pool rpool importado con éxito!"
           exit 0
         fi
         sleep 1
       done
       
-      echo "Error: No se pudo importar el pool rpool."
+      echo "Error: No se pudo importar el pool rpool tras varios intentos."
       exit 1
     '';
   };

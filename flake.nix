@@ -28,18 +28,6 @@
           }
         ];
       };
-    };
-
-    # 2. Opción Standalone (Usuario sin root): home-manager switch --flake .#jose@jose-nb
-    homeConfigurations = {
-      "jose@jose-nb" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [ ./users/jose/default.nix ];
-      };
-    };
-    
-    # 3. Proxmox VM - BIOS
-    nixosConfigurations = {
       "vm-bios" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -49,6 +37,13 @@
       };
     };
 
+    # 2. Opción Standalone (Usuario sin root): home-manager switch --flake .#jose@jose-nb
+    homeConfigurations = {
+      "jose@jose-nb" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [ ./users/jose/default.nix ];
+      };
+    };
   };
 }
 

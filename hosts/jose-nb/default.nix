@@ -3,7 +3,6 @@
 {
   hardware.cpu.intel.updateMicrocode = true;
   imports = [
-  #  (modulesPath + "/profiles/qemu-guest.nix")
     ./disko.nix
     ../../common/hosts-apps.nix
     ../../common/nvidia.nix
@@ -26,7 +25,6 @@
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      # Si tu caché local requiere una llave firmada propia, agrégala aquí abajo
     ];
   };
 
@@ -37,17 +35,18 @@
   boot.zfs.forceImportRoot = true;
   boot.zfs.extraPools = [ "rpool" ];
 
-  # Módulos del kernel requeridos para almacenamiento y QEMU
-  # boot.initrd.availableKernelModules = [
-  #   "uhci_hcd"
-  #   "ehci_pci"
-  #   "ahci"
-  #   "virtio_pci"
-  #   "virtio_scsi"
-  #   "sd_mod"
-  #   "sr_mod"
-  #   "zfs"
-  # ];
+  # Módulos del kernel reales detectados en tu hardware físico
+  boot.initrd.availableKernelModules = [
+    "vmd"
+    "xhci_pci"
+    "thunderbolt"
+    "nvme"
+    "usbhid"
+    "usb_storage"
+    "sd_mod"
+    "rtsx_pci_sdmmc"
+    "zfs"
+  ];
 
   # Gestor de arranque EFI y respaldo automático de /boot
   boot.loader.systemd-boot.enable = true;

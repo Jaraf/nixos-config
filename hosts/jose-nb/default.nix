@@ -34,9 +34,9 @@
 
   # Identidad de la red
   networking = {
-    hostName = "nixos"; 
+    hostName = "jose/nb"; 
     networkmanager.enable = true;
-    enableIPv6 = false;
+    networking.hostId = "9d3e8f61";
     # useDHCP = false;
     # defaultGateway = "10.92.70.1";
     # nameservers = [ "10.92.70.1" ];

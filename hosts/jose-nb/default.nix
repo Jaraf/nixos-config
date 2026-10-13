@@ -4,7 +4,8 @@
   hardware.cpu.intel.updateMicrocode = true;
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
-    ./disko-vm.nix
+  #  ./disko-vm.nix
+    ./disko.nix
     ../../common/hosts-apps.nix
     ../../common/nvidia.nix
   ];

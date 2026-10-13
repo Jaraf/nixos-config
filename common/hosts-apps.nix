@@ -7,6 +7,8 @@
     git
     htop
     mc
+    pciutils
+    usbutils
     vim
     wget
   ];

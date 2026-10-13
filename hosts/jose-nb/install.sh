@@ -1,1 +1,1 @@
-sudo nixos-install --flake .#jose-nb --option substitute false
+ sudo nixos-install --flake .#jose-nb

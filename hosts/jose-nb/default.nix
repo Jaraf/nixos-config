@@ -14,7 +14,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
 
-
   # Configuración explícita para evitar duplicación en mirroredBoots
   boot.loader.grub = {
     enable = true;

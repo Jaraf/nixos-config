@@ -3,9 +3,10 @@
 {
   hardware.cpu.intel.updateMicrocode = true;
   imports = [
-    (modulesPath + "/profiles/qemu-guest.nix")
+  # (modulesPath + "/profiles/qemu-guest.nix")
     ./disko.nix
     ../../common/hosts-apps.nix
+    ../../common/nvidia.nix
   ];
 
   # Configuración explícita para evitar duplicación en mirroredBoots

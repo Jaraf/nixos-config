@@ -1,1 +1,1 @@
-sudo nixos-install --offline --flake .#jose-nb
+sudo nixos-install --flake .#jose-nb --option substitute false

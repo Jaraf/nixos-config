@@ -35,6 +35,9 @@
   boot.zfs.forceImportRoot = true;
   boot.zfs.extraPools = [ "rpool" ];
 
+  # Habilitar firmware no libre y redistribuible para Wi-Fi, Bluetooth y controladores
+  hardware.enableRedistributableFirmware = true;
+
   # Módulos del kernel reales detectados en tu hardware físico
   boot.initrd.availableKernelModules = [
     "vmd"

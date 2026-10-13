@@ -4,12 +4,14 @@
       disk = {
         nvme0 = {
           type = "disk";
+          # device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0";
+          # device = "/dev/sda";
           device = "/dev/disk/by-id/nvme-Predator_SSD_GM7_M.2_2TB_PSBH53400101881";
           content = {
             type = "gpt";
             partitions = {
               esp = {
-                size = "1G";
+                size = "4G";
                 type = "EF00";
                 content = {
                   type = "filesystem";
@@ -29,12 +31,14 @@
         };
         nvme1 = {
           type = "disk";
+          # device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1";
+          # device = "/dev/sdb";
           device = "/dev/disk/by-id/nvme-Predator_SSD_GM7_M.2_2TB_PSBH53400102814";
           content = {
             type = "gpt";
             partitions = {
               esp = {
-                size = "1G";
+                size = "4G";
                 type = "EF00";
                 content = {
                   type = "filesystem";
@@ -76,4 +80,3 @@
     };
   };
 }
-

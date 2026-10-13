@@ -9,11 +9,6 @@
     ../../common/nvidia.nix
   ];
 
-  # Configuración de Zonas Horarias y Locale
-  time.timeZone = "America/Argentina/Buenos_Aires";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-
   # Configuración explícita para evitar duplicación en mirroredBoots
   boot.loader.grub = {
     enable = true;
@@ -29,13 +24,13 @@
   };
 
   # Habilitar el agente de QEMU para comunicación directa con Proxmox
-  services.qemuGuest.enable = true;
+  # services.qemuGuest.enable = true;
 
   # Habilitar SSH para administración remota
-  services.openssh = {
-    enable = true;
-    settings.PermitRootLogin = "yes";
-  };
+  # services.openssh = {
+  #   enable = true;
+  #   settings.PermitRootLogin = "yes";
+  # };
 
   # Identidad de la red
   networking = {
@@ -63,15 +58,15 @@
   boot.initrd.systemd.emergencyAccess = true;
 
   # Módulos del kernel requeridos para almacenamiento y QEMU
-  boot.initrd.availableKernelModules = [
-    "uhci_hcd"
-    "ehci_pci"
-    "ahci"
-    "virtio_pci"
-    "virtio_scsi"
-    "sd_mod"
-    "sr_mod"
-  ];
+  # boot.initrd.availableKernelModules = [
+  #   "uhci_hcd"
+  #   "ehci_pci"
+  #   "ahci"
+  #   "virtio_pci"
+  #   "virtio_scsi"
+  #   "sd_mod"
+  #   "sr_mod"
+  # ];
 
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "26.11";

@@ -34,7 +34,7 @@
 
   # Identidad de la red
   networking = {
-    hostName = "jose/nb"; 
+    hostName = "jose-nb"; 
     networkmanager.enable = true;
     networking.hostId = "9d3e8f61";
     # useDHCP = false;

@@ -6,6 +6,7 @@
     fastfetch
     git
     htop
+    kdePackages.sddm-kcm
     mc
     pciutils
     usbutils

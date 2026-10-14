@@ -18,17 +18,6 @@
   time.timeZone = "America/Argentina/Buenos_Aires";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Configuración del Caché Local de Nix (Substituters)
-  # nix.settings = {
-  #   substituters = [
-  #     "http://192.168.0.162:3143"
-  #     "https://cache.nixos.org"
-  #   ];
-  #   trusted-public-keys = [
-  #     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-  #   ];
-  # };
-
   # Bootloader y configuración de ZFS en el Initrd
   boot.initrd.systemd.emergencyAccess = true;
   boot.supportedFilesystems = [ "zfs" ];
@@ -36,10 +25,13 @@
   boot.zfs.forceImportRoot = true;
   boot.zfs.extraPools = [ "rpool" ];
 
+  # Parámetro para forzar el controlador HDA estándar de Intel y solucionar salidas mudas
+  boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=1" ];
+
   # Habilitar firmware no libre y redistribuible para Wi-Fi, Bluetooth y controladores
   hardware.enableRedistributableFirmware = true;
-  hardware.bluetooth.enable = true; # Habilita el soporte de Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # Enciende el bluetooth automáticamente al arrancar
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Módulos del kernel reales detectados en tu hardware físico
   boot.initrd.availableKernelModules = [

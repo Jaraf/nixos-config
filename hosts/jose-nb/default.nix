@@ -15,6 +15,11 @@
     mangohud   # Monitor de rendimiento en pantalla
   ];
 
+  # Forzar la inyección global de MangoHUD en aplicaciones y Steam
+  environment.variables = {
+    MANGOHUD = "1";
+  };
+
   # Identidad de la red
   networking.hostName = "jose-nb"; 
   networking.networkmanager.enable = true;

@@ -11,6 +11,7 @@
   # Tus aplicaciones de usuario cotidianas
   home.packages = with pkgs; [
     discord
+    chromium
     vscodium
   ];
 

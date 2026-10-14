@@ -75,6 +75,13 @@
     pulse.enable = true;
   };
 
+  # Configuración de Steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
   # Usuario del sistema
   users.users.jose = {
     isNormalUser = true;
@@ -83,5 +90,5 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  system.stateVersion = "26.05";
+  system.stateVersion = "26.11";
 }

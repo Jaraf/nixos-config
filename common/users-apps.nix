@@ -2,8 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    firefox
-    steam
     vlc
   ];
 

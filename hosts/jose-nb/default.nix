@@ -47,8 +47,8 @@
     msi-ec
   ];
 
-  # Cargar el módulo automáticamente al iniciar el sistema
-  boot.kernelModules = [ "msi_ec" ];
+  # Módulos del kernel necesarios para el control de hardware MSI
+  boot.kernelModules = [ "msi_ec" "ec_sys" ];
 
   # Módulos del kernel reales detectados en tu hardware físico
   boot.initrd.availableKernelModules = [

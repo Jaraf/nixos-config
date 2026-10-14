@@ -3,6 +3,7 @@
 {
   hardware.cpu.intel.updateMicrocode = true;
   imports = [
+    ./hardware-configuration.nix
     ./disko.nix
     ../../common/hosts-apps.nix
     ../../common/nvidia.nix

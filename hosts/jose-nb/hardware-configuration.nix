@@ -13,35 +13,12 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  # Las definiciones de fileSystems han sido comentadas porque
-  # Disko (disko.nix) gestiona por completo el mapeo de rpool, /home, /boot, etc.
-  
-  # fileSystems."/" =
-  #   { device = "rpool/root";
-  #     fsType = "zfs";
-  #   };
-
-  # fileSystems."/home" =
-  #   { device = "rpool/home";
-  #     fsType = "zfs";
-  #   };
-
-  # fileSystems."/boot" =
-  #   { device = "/dev/disk/by-uuid/397D-0E9C";
-  #     fsType = "vfat";
-  #     options = [ "fmask=0022" "dmask=0022" ];
-  #   };
-
-  # fileSystems."/boot/backup" =
-  #   { device = "/dev/disk/by-uuid/39B2-3F83";
-  #     fsType = "vfat";
-  #     options = [ "fmask=0022" "dmask=0022" ];
-  #   };
-
-  # fileSystems."/rpool" =
-  #   { device = "rpool";
-  #     fsType = "zfs";
-  #   };
+  # Se comentan las definiciones de fileSystems porque Disko se encarga de ellas:
+  # fileSystems."/" = { device = "rpool/root"; fsType = "zfs"; };
+  # fileSystems."/home" = { device = "rpool/home"; fsType = "zfs"; };
+  # fileSystems."/boot" = { device = "/dev/disk/by-uuid/397D-0E9C"; fsType = "vfat"; options = [ "fmask=0022" "dmask=0022" ]; };
+  # fileSystems."/boot/backup" = { device = "/dev/disk/by-uuid/39B2-3F83"; fsType = "vfat"; options = [ "fmask=0022" "dmask=0022" ]; };
+  # fileSystems."/rpool" = { device = "rpool"; fsType = "zfs"; };
 
   swapDevices = [ ];
 

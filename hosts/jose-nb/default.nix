@@ -73,11 +73,23 @@
     pulse.enable = true;
   };
 
-  # Configuración de Steam
+  # Habilitar MangoHUD en los paquetes del sistema
+  environment.systemPackages = with pkgs; [
+    mangohud
+    pulseaudio # Mantener por compatibilidad pactl
+  ];
+
+  # Configuración de Steam con soporte para MangoHUD
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    
+    # Esta opción ayuda a que las utilidades gráficas como MangoHUD o Gamescope 
+    # tengan acceso a las librerías del entorno de Steam
+    extraCompatPackages = with pkgs; [
+      mangohud
+    ];
   };
 
   # Habilitar características experimentales de Nix a nivel de sistema

@@ -76,6 +76,9 @@
     dedicatedServer.openFirewall = true;
   };
 
+  # Habilitar características experimentales de Nix a nivel de sistema
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Usuario del sistema
   users.users.jose = {
     isNormalUser = true;

@@ -11,8 +11,9 @@
 
   # Única definición de paquetes del sistema combinados
   environment.systemPackages = with pkgs; [
-    pulseaudio # Provee pactl para compatibilidad con apps que lo reclaman
-    mangohud   # Monitor de rendimiento en pantalla
+    pulseaudio     # Provee pactl para compatibilidad con apps que lo reclaman
+    mangohud       # Monitor de rendimiento en pantalla
+    mcontrolcenter # Interfaz gráfica de control para portátiles MSI
   ];
 
   # Forzar la inyección global de MangoHUD en aplicaciones y Steam
@@ -40,6 +41,14 @@
   hardware.enableRedistributableFirmware = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+
+  # Compilación del módulo msi-ec para el control de hardware MSI
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    msi-ec
+  ];
+
+  # Cargar el módulo automáticamente al iniciar el sistema
+  boot.kernelModules = [ "msi_ec" ];
 
   # Módulos del kernel reales detectados en tu hardware físico
   boot.initrd.availableKernelModules = [

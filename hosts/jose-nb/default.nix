@@ -9,6 +9,10 @@
     ../../common/nvidia.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    pulseaudio # Esto provee pactl para compatibilidad con apps que lo reclaman
+  ];
+
   # Identidad de la red
   networking.hostName = "jose-nb"; 
   networking.networkmanager.enable = true;

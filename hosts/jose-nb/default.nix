@@ -87,7 +87,7 @@
   # Usuario del sistema
   users.users.jose = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" "bluetooth" ];
     shell = pkgs.bash;
   };
 

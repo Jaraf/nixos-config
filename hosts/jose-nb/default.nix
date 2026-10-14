@@ -38,6 +38,8 @@
 
   # Habilitar firmware no libre y redistribuible para Wi-Fi, Bluetooth y controladores
   hardware.enableRedistributableFirmware = true;
+  hardware.bluetooth.enable = true; # Habilita el soporte de Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # Enciende el bluetooth automáticamente al arrancar
 
   # Módulos del kernel reales detectados en tu hardware físico
   boot.initrd.availableKernelModules = [

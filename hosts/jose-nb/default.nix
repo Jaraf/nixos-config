@@ -26,7 +26,7 @@
   boot.zfs.extraPools = [ "rpool" ];
 
   # Parámetro para forzar el controlador HDA estándar de Intel y solucionar salidas mudas
-  boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=1" ];
+  # boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=1" ];
 
   # Habilitar firmware no libre y redistribuible para Wi-Fi, Bluetooth y controladores
   hardware.enableRedistributableFirmware = true;

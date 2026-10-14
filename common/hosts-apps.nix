@@ -6,6 +6,7 @@
     curl
     fastfetch
     git
+    home-manager
     htop
     kdePackages.sddm-kcm
     mc

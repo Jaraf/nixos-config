@@ -23,5 +23,5 @@
     settings.user.email = "joserugel@gmail.com";
   };
 
-  home.stateVersion = "26.05";
+  home.stateVersion = "26.11";
 }

@@ -9,8 +9,10 @@
     ../../common/nvidia.nix
   ];
 
+  # Única definición de paquetes del sistema combinados
   environment.systemPackages = with pkgs; [
-    pulseaudio # Esto provee pactl para compatibilidad con apps que lo reclaman
+    pulseaudio # Provee pactl para compatibilidad con apps que lo reclaman
+    mangohud   # Monitor de rendimiento en pantalla
   ];
 
   # Identidad de la red
@@ -28,9 +30,6 @@
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = true;
   boot.zfs.extraPools = [ "rpool" ];
-
-  # Parámetro para forzar el controlador HDA estándar de Intel y solucionar salidas mudas
-  # boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=1" ];
 
   # Habilitar firmware no libre y redistribuible para Wi-Fi, Bluetooth y controladores
   hardware.enableRedistributableFirmware = true;
@@ -73,20 +72,12 @@
     pulse.enable = true;
   };
 
-  # Habilitar MangoHUD en los paquetes del sistema
-  environment.systemPackages = with pkgs; [
-    mangohud
-    pulseaudio # Mantener por compatibilidad pactl
-  ];
-
   # Configuración de Steam con soporte para MangoHUD
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     
-    # Esta opción ayuda a que las utilidades gráficas como MangoHUD o Gamescope 
-    # tengan acceso a las librerías del entorno de Steam
     extraCompatPackages = with pkgs; [
       mangohud
     ];

@@ -19,15 +19,15 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Configuración del Caché Local de Nix (Substituters)
-  nix.settings = {
-    substituters = [
-      "http://192.168.0.162:3143"
-      "https://cache.nixos.org"
-    ];
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-    ];
-  };
+  # nix.settings = {
+  #   substituters = [
+  #     "http://192.168.0.162:3143"
+  #     "https://cache.nixos.org"
+  #   ];
+  #   trusted-public-keys = [
+  #     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+  #   ];
+  # };
 
   # Bootloader y configuración de ZFS en el Initrd
   boot.initrd.systemd.emergencyAccess = true;

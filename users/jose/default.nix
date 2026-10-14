@@ -10,8 +10,10 @@
 
   # Tus aplicaciones de usuario cotidianas
   home.packages = with pkgs; [
-    discord
     chromium
+    discord
+    firefox
+    vlc
     vscodium
   ];
 

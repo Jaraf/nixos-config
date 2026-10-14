@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    alsa-utils
     curl
     fastfetch
     git

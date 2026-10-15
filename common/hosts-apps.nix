@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     alsa-utils
     curl
+    dnsutils
     fastfetch
     git
     home-manager

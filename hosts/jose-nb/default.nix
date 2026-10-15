@@ -97,6 +97,8 @@
     ];
   };
 
+  programs.kde-pim.enable = false 
+
   # Habilitar características experimentales de Nix a nivel de sistema
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

@@ -10,7 +10,7 @@
 
   # Tus aplicaciones de usuario cotidianas
   home.packages = with pkgs; [
-    # birdtray
+    birdtray
     chromium
     discord
     firefox

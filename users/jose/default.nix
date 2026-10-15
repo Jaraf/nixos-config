@@ -31,6 +31,11 @@
     noDisplay = false;
   };
 
+  # Forzar a Thunderbird a usar el backend de X11 (XWayland) para que Birdtray pueda comunicarse con su ventana
+  home.sessionVariables = {
+    GDK_BACKEND = "x11";
+  };
+
   # Habilitar gestor de sesiones de usuario
   programs.home-manager.enable = true;
   programs.git = {

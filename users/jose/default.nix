@@ -20,21 +20,21 @@
   ];
 
   # Forzar a Birdtray a correr bajo XWayland (xcb) para la bandeja del sistema en Wayland
-  xdg.desktopEntries.birdtray = {
-    name = "Birdtray";
-    genericName = "Thunderbird New Mail Tray Notification";
-    exec = "env QT_QPA_PLATFORM=xcb birdtray";
-    icon = "birdtray";
-    terminal = false;
-    categories = [ "Network" "Email" "Qt" ];
-    type = "Application";
-    noDisplay = false;
-  };
+#    xdg.desktopEntries.birdtray = {
+#      name = "Birdtray";
+#      genericName = "Thunderbird New Mail Tray Notification";
+#      exec = "env QT_QPA_PLATFORM=xcb birdtray";
+#      icon = "birdtray";
+#      terminal = false;
+#      categories = [ "Network" "Email" "Qt" ];
+#      type = "Application";
+#      noDisplay = false;
+#    };
 
   # Forzar a Thunderbird a usar el backend de X11 (XWayland) para que Birdtray pueda comunicarse con su ventana
-  home.sessionVariables = {
-    GDK_BACKEND = "x11";
-  };
+#  home.sessionVariables = {
+#    GDK_BACKEND = "x11";
+#  };
 
   # Habilitar gestor de sesiones de usuario
   programs.home-manager.enable = true;

@@ -8,6 +8,11 @@
     ../../common/users-apps.nix
   ];
 
+  # Permitir software privativo (unfree) en Home Manager standalone
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
   # Tus aplicaciones de usuario cotidianas
   home.packages = with pkgs; [
     birdtray

@@ -10,9 +10,11 @@
 
   # Tus aplicaciones de usuario cotidianas
   home.packages = with pkgs; [
+    birdtray
     chromium
     discord
     firefox
+    thunderbird
     vlc
     vscodium
   ];

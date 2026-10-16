@@ -14,9 +14,15 @@
     chromium
     discord
     firefox
+    heroic
+    pcsx2
+    qbittorrent
+    rpcs3
+    telegram-desktop
     thunderbird
     vlc
     vscodium
+    zapzap
   ];
 
   # Habilitar gestor de sesiones de usuario

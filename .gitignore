@@ -1,0 +1,11 @@
+# Archivos de espacio de trabajo de VS Code / VSCodium
+*.code-workspace
+
+# Archivos temporales del sistema
+.DS_Store
+*~
+*.swp
+
+# Resultado de compilaciones de Nix
+result
+result-*

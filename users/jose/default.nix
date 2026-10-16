@@ -15,6 +15,7 @@
     discord
     firefox
     heroic
+    obs-studio
     pcsx2
     qbittorrent
     rpcs3

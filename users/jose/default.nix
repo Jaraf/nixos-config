@@ -27,6 +27,9 @@
 
   # Habilitar gestor de sesiones de usuario
   programs.home-manager.enable = true;
+
+  targets.genericLinux.enable = false;
+
   programs.git = {
     enable = true;
     settings.user.name = "jaraf";

@@ -10,7 +10,7 @@
 
   # Tus aplicaciones de usuario cotidianas
   home.packages = with pkgs; [
-    birdtray
+    birdtray #Thunderbird command line: /usr/bin/env GDK_BACKEND=x11 thunderbird
     chromium
     discord
     firefox

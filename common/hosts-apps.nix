@@ -9,6 +9,7 @@
     git
     home-manager
     htop
+    kdePackages.kcalc
     kdePackages.sddm-kcm
     mc
     pciutils

@@ -13,6 +13,7 @@
     birdtray #Thunderbird command line: /usr/bin/env GDK_BACKEND=x11 thunderbird
     chromium
     discord
+    element-desktop
     firefox
     heroic
     obs-studio

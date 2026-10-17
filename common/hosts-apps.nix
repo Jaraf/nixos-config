@@ -5,7 +5,6 @@
     alsa-utils
     curl
     dnsutils
-    element-desktop
     fastfetch
     git
     home-manager

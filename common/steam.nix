@@ -1,3 +1,6 @@
+{ config, pkgs, lib, ... }:
+
+{
   # Configuración de Steam con soporte para MangoHUD
 
   # Definir variables de ruta
@@ -17,3 +20,4 @@
 #      mangohud
 #    ];
   };
+}

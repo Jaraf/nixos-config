@@ -6,7 +6,7 @@
     ./hardware-configuration.nix
     ./disko.nix
 #    ../../common/hosts-apps.nix
-    /common/env-apps.nix
+    ../../common/env-apps.nix
     ../../common/nvidia.nix
   ];
 

@@ -6,7 +6,8 @@
       users = [ "jose" ];
       commands = [
         {
-          command = "${pkgs.mc}/bin/mc";
+#          command = "${pkgs.mc}/bin/mc";
+          command = "/run/current-system/sw/bin/mc";
           options = [ "NOPASSWD" ];
         }
       ];

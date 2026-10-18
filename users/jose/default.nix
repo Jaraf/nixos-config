@@ -8,10 +8,8 @@
 
   environment.systemPackages = with pkgs; [
     birdtray #Thunderbird command line: /usr/bin/env GDK_BACKEND=x11 thunderbird
-    chromium
     discord
     element-desktop
-    firefox
     heroic
     obs-studio
     pcsx2
@@ -19,7 +17,6 @@
     rpcs3
     telegram-desktop
     thunderbird
-    vlc
     vscodium
     zapzap
   ];

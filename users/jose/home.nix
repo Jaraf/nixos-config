@@ -34,7 +34,7 @@
     # Habilitar gestor de sesiones de usuario
     programs.home-manager.enable = true;
   
-    targets.genericLinux.enable = false;
+#    targets.genericLinux.enable = false;
   
     # Forzar a Qt a utilizar la integración de forma estable en Wayland/X11
     home.sessionVariables = {

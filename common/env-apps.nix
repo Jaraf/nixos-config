@@ -2,6 +2,7 @@
 
 {
   imports = [
+    /common/mc.nix
     /common/onlyoffice.nix
   ];
 
@@ -15,7 +16,6 @@
     htop
     kdePackages.kcalc
     kdePackages.sddm-kcm
-    mc
     pciutils
     usbutils
     vim

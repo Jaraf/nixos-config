@@ -17,6 +17,7 @@
     kdePackages.kcalc
     kdePackages.sddm-kcm
     pciutils
+    # pulseaudio
     usbutils
     vim
     wget

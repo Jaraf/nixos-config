@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./common/mc.nix
-    ./common/onlyoffice.nix
+    ./mc.nix
+    ./onlyoffice.nix
   ];
 
   environment.systemPackages = with pkgs; [

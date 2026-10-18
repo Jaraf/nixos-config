@@ -1,15 +1,14 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  xdg.configFile."mc/ini".source = .config/mc/ini;
-  xdg.configFile."mc/panels.ini".source = .config/mc/panels.ini;
+  xdg.configFile."mc/ini".source = ../../common/.config/mc/ini;
+  xdg.configFile."mc/panels.ini".source = ../../common/.config/mc/panels.ini;
 
   security.sudo.extraRules = [
     {
       users = [ "jose" ];
       commands = [
         {
-#          command = "${pkgs.mc}/bin/mc";
           command = "/run/current-system/sw/bin/mc";
           options = [ "NOPASSWD" ];
         }

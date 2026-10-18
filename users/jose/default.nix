@@ -7,7 +7,21 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    wget
+    birdtray #Thunderbird command line: /usr/bin/env GDK_BACKEND=x11 thunderbird
+    chromium
+    discord
+    element-desktop
+    firefox
+    heroic
+    obs-studio
+    pcsx2
+    qbittorrent
+    rpcs3
+    telegram-desktop
+    thunderbird
+    vlc
+    vscodium
+    zapzap
   ];
 
   security.sudo.extraRules = [

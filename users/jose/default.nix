@@ -13,6 +13,11 @@
     }
   ];
 
+  imports = [
+    ../../common/env-apps.nix
+    ../../common/mangohud.nix
+  ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

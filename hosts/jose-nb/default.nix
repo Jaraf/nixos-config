@@ -11,7 +11,6 @@
 
   # Única definición de paquetes del sistema combinados
   environment.systemPackages = with pkgs; [
-    pulseaudio     # Provee pactl para compatibilidad con apps que lo reclaman
     mangohud       # Monitor de rendimiento en pantalla
     mcontrolcenter # Interfaz gráfica de control para portátiles MSI
   ];

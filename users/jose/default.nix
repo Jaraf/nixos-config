@@ -13,7 +13,9 @@
     }
   ];
 
-  imports = [
-    ./home.nix
-  ];
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.jose = import ./home.nix;
+  };
 }

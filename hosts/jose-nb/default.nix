@@ -6,7 +6,6 @@
     ./hardware-configuration.nix
     ./disko.nix
     ../../common/env-apps.nix
-    ../../common/mangohud.nix
     ../../common/nvidia.nix
   ];
 

@@ -1,6 +1,18 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
+  security.sudo.extraRules = [
+    {
+      users = [ "jose" ];
+      commands = [
+        {
+          command = "${pkgs.mc}/bin/mc";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
   environment.systemPackages = with pkgs; [
     alsa-utils
     curl
@@ -17,4 +29,13 @@
     vim
     wget
   ];
+
+  system.activationScripts.rootMcConfig = {
+    text = ''
+      mkdir -p /root/.config/mc
+      cp -f ${./common/.config/mc/root-ini} /root/.config/mc/ini
+      cp -f ${./common/.config/mc/panels.ini} /root/.config/mc/panels.ini
+      chmod 600 /root/.config/mc/*
+    '';
+  };
 }

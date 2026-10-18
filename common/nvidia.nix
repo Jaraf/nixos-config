@@ -13,5 +13,5 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  environment.systemPackages = with pkgs; [ nvtop ];
+  environment.systemPackages = with pkgs; [ nvtopPackages.full ];
 }

@@ -13,7 +13,7 @@
     }
   ];
 
-  modules = [
+  imports = [
     ./home.nix
   ];
 }

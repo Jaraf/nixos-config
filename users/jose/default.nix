@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  xdg.configFile."mc/ini".source = .config/mc/ini;
+  xdg.configFile."mc/panels.ini".source = .config/mc/panels.ini;
 
   security.sudo.extraRules = [
     {

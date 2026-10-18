@@ -7,8 +7,6 @@
     ./disko.nix
     ../../common/nvidia.nix
     ../../common/env-apps.nix
-    ../../common/mangohud.nix
-    ../../common/steam.nix
   ];
 
   # Identidad de la red

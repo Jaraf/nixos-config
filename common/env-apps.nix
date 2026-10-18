@@ -8,9 +8,11 @@
 
   environment.systemPackages = with pkgs; [
     alsa-utils
+    chromium
     curl
     dnsutils
     fastfetch
+    firefox
     git
     home-manager
     htop
@@ -20,6 +22,7 @@
     # pulseaudio
     usbutils
     vim
+    vlc
     wget
   ];
 }

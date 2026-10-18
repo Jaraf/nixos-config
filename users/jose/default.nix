@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../../common/mangohud.nix
+    ../../common/steam.nix
+  ];
+
   security.sudo.extraRules = [
     {
       users = [ "jose" ];

@@ -6,6 +6,10 @@
     ../../common/steam.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    wget
+  ];
+
   security.sudo.extraRules = [
     {
       users = [ "jose" ];

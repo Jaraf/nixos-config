@@ -4,18 +4,6 @@
   xdg.configFile."mc/ini".source = ../../common/.config/mc/ini;
   xdg.configFile."mc/panels.ini".source = ../../common/.config/mc/panels.ini;
 
-  security.sudo.extraRules = [
-    {
-      users = [ "jose" ];
-      commands = [
-        {
-          command = "/run/current-system/sw/bin/mc";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
-
   home.username = "jose";
   home.homeDirectory = "/home/jose";
 

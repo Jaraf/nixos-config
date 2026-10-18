@@ -23,6 +23,7 @@
         system = "x86_64-linux";
         modules = [
           disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
           ./hosts/jose-nb/default.nix
           ./users/jose/default.nix
         ];

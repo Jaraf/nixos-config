@@ -8,4 +8,10 @@
   environment.variables = {
     MANGOHUD = "1";
   };
+
+  programs.steam = {
+    extraCompatPackages = with pkgs; [
+      mangohud
+    ];
+  };
 }

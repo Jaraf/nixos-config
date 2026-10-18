@@ -10,18 +10,6 @@
     ../../common/nvidia.nix
   ];
 
-  security.sudo.extraRules = [
-    {
-      users = [ "jose" ];
-      commands = [
-        {
-          command = "/run/current-system/sw/bin/mc";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
-
   # Única definición de paquetes del sistema combinados
   environment.systemPackages = with pkgs; [
     pulseaudio     # Provee pactl para compatibilidad con apps que lo reclaman

@@ -1,17 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  security.sudo.extraRules = [
-    {
-      users = [ "jose" ];
-      commands = [
-        {
-#          command = "${pkgs.mc}/bin/mc";
-          command = "/run/current-system/sw/bin/mc";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
+  imports = [
+    /common/onlyoffice.nix
   ];
 
   environment.systemPackages = with pkgs; [

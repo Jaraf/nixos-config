@@ -11,14 +11,8 @@
 
   # Única definición de paquetes del sistema combinados
   environment.systemPackages = with pkgs; [
-    mangohud       # Monitor de rendimiento en pantalla
     mcontrolcenter # Interfaz gráfica de control para portátiles MSI
   ];
-
-  # Forzar la inyección global de MangoHUD en aplicaciones y Steam
-  environment.variables = {
-    MANGOHUD = "1";
-  };
 
   # Identidad de la red
   networking.hostName = "jose-nb"; 

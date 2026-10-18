@@ -6,12 +6,8 @@
     ./hardware-configuration.nix
     ./disko.nix
     ../../common/env-apps.nix
+    ../../common/mangohud.nix
     ../../common/nvidia.nix
-  ];
-
-  # Única definición de paquetes del sistema combinados
-  environment.systemPackages = with pkgs; [
-    mcontrolcenter # Interfaz gráfica de control para portátiles MSI
   ];
 
   # Identidad de la red

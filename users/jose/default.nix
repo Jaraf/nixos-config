@@ -19,9 +19,9 @@
   home.username = "jose";
   home.homeDirectory = "/home/jose";
 
-  imports = [
-    ../../common/users-apps.nix
-  ];
+#  imports = [
+#    ../../common/users-apps.nix
+#  ];
 
   # Tus aplicaciones de usuario cotidianas
   home.packages = with pkgs; [

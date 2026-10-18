@@ -12,4 +12,8 @@
       ];
     }
   ];
+
+  modules = [
+    ./home.nix
+  ];
 }

@@ -11,7 +11,6 @@
     discord
     element-desktop
     heroic
-    jellyfin-desktop
     obs-studio
     pcsx2
     qbittorrent

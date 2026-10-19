@@ -6,7 +6,7 @@
     flake = "github:jaraf/nixos-config#jose-nb";
     dates = "Sun *-*-* 05:00:00";
     allowReboot = true;
-    randomizedDelaySec = "30min"
+    randomizedDelaySec = "30min";
     flags = [
       "--refresh"
       "--no-write-lock-file"

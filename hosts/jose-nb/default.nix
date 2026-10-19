@@ -1,6 +1,18 @@
 { config, pkgs, lib, modulesPath, ... }:
 
 {
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:jaraf/nixos-config#jose-nb";
+    dates = "Sun *-*-* 05:00:00";
+    allowReboot = true;
+    randomizedDelaySec = "30min"
+    flags = [
+      "--refresh"
+      "--no-write-lock-file"
+    ];
+  };
+
   hardware.cpu.intel.updateMicrocode = true;
   imports = [
     ./hardware-configuration.nix

@@ -9,7 +9,6 @@
 
   programs.home-manager.enable = true;
   
-  # Tus variables y configuraciones de sesión anteriores...
   home.sessionVariables = {
     QT_QPA_PLATFORM = "wayland;xcb";
   };

@@ -21,9 +21,9 @@
     zapzap
   ];
 
-  environment.variables = {
-    QTWEBENGINEPROCESS_PATH = "${lib.getBin pkgs.qt6.qtbase}/libexec/QtWebEngineProcess";
-  };
+  # environment.variables = {
+  #  QTWEBENGINEPROCESS_PATH = "${lib.getBin pkgs.qt6.qtbase}/libexec/QtWebEngineProcess";
+  # };
 
   security.sudo.extraRules = [
     {

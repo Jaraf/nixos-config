@@ -18,7 +18,7 @@
     telegram-desktop
     thunderbird
     vscodium
-#    zapzap
+    zapzap
   ];
 
   security.sudo.extraRules = [

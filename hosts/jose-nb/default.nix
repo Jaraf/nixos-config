@@ -53,6 +53,7 @@
   boot.kernelParams = [ "ec_sys.write_support=1" ];
 
   environment.systemPackages = [ pkgs.mcontrolcenter ]; # MControlCenter
+  services.dbus.packages = [ pkgs.mcontrolcenter ]; # Without this, MControlCenter won't be able to talk to its background helper service
 
   # Habilitar firmware no libre y redistribuible para Wi-Fi, Bluetooth y controladores
   hardware.enableRedistributableFirmware = true;

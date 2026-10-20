@@ -52,7 +52,8 @@
   # Pass write_support=1 to the ec_sys module
   boot.kernelParams = [ "ec_sys.write_support=1" ];
 
-  environment.systemPackages = [ pkgs.mcontrolcenter ]; # MControlCenter
+  # MControlCenter
+  environment.systemPackages = [ pkgs.mcontrolcenter ];
   services.dbus.packages = [ pkgs.mcontrolcenter ]; # Without this, MControlCenter won't be able to talk to its background helper service
 
   # Habilitar firmware no libre y redistribuible para Wi-Fi, Bluetooth y controladores

@@ -12,7 +12,8 @@
   home.sessionVariables = {
     QT_QPA_PLATFORM = "wayland;xcb";
     # Añade esta línea para que ZapZap encuentre el proceso de WebEngine
-    QTWEBENGINEPROCESS_PATH = "${pkgs.qt6.qtwebengine}/lib/qt-6/libexec/QtWebEngineProcess";
+#    QTWEBENGINEPROCESS_PATH = "${pkgs.qt6.qtwebengine}/lib/qt-6/libexec/QtWebEngineProcess";
+    QTWEBENGINEPROCESS_PATH = "${lib.getBin pkgs.qt6.qtwebengine}/libexec/QtWebEngineProcess";
   };
 
   xdg.configFile."mc/ini".source = ../../common/.config/mc/ini;

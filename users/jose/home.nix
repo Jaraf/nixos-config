@@ -11,6 +11,7 @@
   
   home.sessionVariables = {
     QT_QPA_PLATFORM = "wayland;xcb";
+    QTWEBENGINEPROCESS_PATH = "${pkgs.qt6.qtwebengine.bin}/lib/qt-6/libexec/QtWebEngineProcess";
   };
 
   xdg.configFile."mc/ini".source = ../../common/.config/mc/ini;

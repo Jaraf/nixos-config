@@ -42,15 +42,11 @@
   ];
 
   # Compilación del módulo msi-ec para el control de hardware MSI
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    msi-ec
-  ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ msi-ec ];
 
   # Módulos del kernel necesarios para el control de hardware MSI
   boot.kernelModules = [ "msi_ec" "ec_sys" ];
-
-  # Pass write_support=1 to the ec_sys module
-  boot.kernelParams = [ "ec_sys.write_support=1" ];
+  boot.kernelParams = [ "ec_sys.write_support=1" ]; # Pass write_support=1 to the ec_sys module
 
   # MControlCenter
   environment.systemPackages = [ pkgs.mcontrolcenter ];

@@ -103,6 +103,28 @@
     ];
   };
 
+  fileSystems."/mnt/sdb" = {
+    device = "192.168.0.3:/mnt/sdb";
+    fsType = "nfs";
+    options = [ 
+      "noauto" 
+      "_netdev" 
+      "x-systemd.automount" 
+      "x-systemd.device-timeout=5" 
+    ];
+  };
+
+  fileSystems."/mnt/sdc" = {
+    device = "192.168.0.3:/mnt/sdc";
+    fsType = "nfs";
+    options = [ 
+      "noauto" 
+      "_netdev" 
+      "x-systemd.automount" 
+      "x-systemd.device-timeout=5" 
+    ];
+  };
+
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "26.11";
 }

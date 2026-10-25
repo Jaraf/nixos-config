@@ -72,6 +72,8 @@
   services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "your-username";
   programs.kde-pim.enable = false; # PIM deshabilitado (Korganizer, Kmail, etc)
 
   # Configuración de Zonas Horarias y Locale

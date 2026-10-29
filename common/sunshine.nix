@@ -9,8 +9,8 @@
   
     settings = {
       prep_cmd = ''
-        ${pkgs.libkscreen}/bin/kscreen-doctor output.eDP-1.mode.15
-        ${pkgs.libkscreen}/bin/kscreen-doctor output.eDP-1.mode.1
+        ${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor output.eDP-1.mode.15
+        ${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor output.eDP-1.mode.1
       '';
     };
   };

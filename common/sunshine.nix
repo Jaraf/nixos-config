@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  environment.systemPackages = [
+    pkgs.sunshine
+  ];
   services.sunshine = {
     enable = true;
     autoStart = true;

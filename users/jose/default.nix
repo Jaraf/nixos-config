@@ -16,6 +16,7 @@
     pcsx2
     qbittorrent
     rpcs3
+    sunshine
     telegram-desktop
     thunderbird
     vscodium

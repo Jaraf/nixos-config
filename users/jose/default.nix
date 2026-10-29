@@ -11,6 +11,7 @@
     discord
     element-desktop
     heroic
+    jellyfin-mpv-shim
     obs-studio
     pcsx2
     qbittorrent

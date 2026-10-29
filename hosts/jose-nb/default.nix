@@ -18,11 +18,11 @@
   boot.zfs.forceImportRoot = true;
   boot.zfs.extraPools = [ "rpool" ];
 
-  # Gestor de arranque EFI y respaldo automático de /boot
+  # Gestor de arranque EFI y respaldo automático de /boot (con exclusión para evitar bucles)
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.extraInstallCommands = ''
-    ${pkgs.rsync}/bin/rsync -av --delete /boot/ /boot/backup/
+    ${pkgs.rsync}/bin/rsync -av --delete --exclude='backup' /boot/ /boot/backup/
   '';
 
   # Intel

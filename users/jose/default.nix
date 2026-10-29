@@ -4,6 +4,7 @@
   imports = [
     ../../common/mangohud.nix
     ../../common/steam.nix
+    ../../common/sunshine.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -16,7 +17,6 @@
     pcsx2
     qbittorrent
     rpcs3
-    sunshine
     telegram-desktop
     thunderbird
     vscodium

@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ sunshine ];
   services.sunshine = {
     enable = true;
-    autoStart = true; # Opcional: si quieres que corra como servicio de sistema
-    openFirewall = true; # Abre automáticamente los puertos necesarios en el firewall
+    autoStart = true;
+    openFirewall = true;
+    capSysAdmin = true; # Muy recomendado si usas Wayland para permitir la captura de pantalla
   };
 }

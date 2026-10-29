@@ -1,6 +1,17 @@
 { config, pkgs, ... }:
 
 {
+  # 1. Habilitar la recolección de basura automática de forma periódica
+  nix.gc = {
+    automatic = true;
+    dates = "weekly"; # O "daily" si lo prefieres
+    options = "--delete-older-than 7d"; # Borra generaciones de más de 7 días
+  };
+
+  # 2. Limitar cuántas generaciones se guardan en el menú de arranque (y por ende en /boot)
+  # Esto evita que se acumulen docenas de kernels viejos ocupando espacio EFI
+  boot.loader.systemd-boot.configurationLimit = 10; 
+
   nix.settings = {
     # Ordenamos los substituters: primero tu Nginx local, luego el oficial como fallback
     substituters = [

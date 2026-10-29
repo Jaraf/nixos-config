@@ -1,18 +1,19 @@
 { config, pkgs, ... }:
 
 {
-#  environment.systemPackages = [ pkgs.sunshine ];
   services.sunshine = {
     enable = true;
     autoStart = true;
     openFirewall = true;
-    capSysAdmin = true; # Muy recomendado si usas Wayland para permitir la captura de pantalla
-
-    # Configuración de comandos personalizados para antes y después del streaming
+    capSysAdmin = true;
+  
     settings = {
       prep_cmd = ''
+        export XDG_RUNTIME_DIR=/run/user/1000
+        export WAYLAND_DISPLAY=wayland-1
         ${pkgs.wlr-randr}/bin/wlr-randr --output eDP-1 --mode 1920x1080
-        ${pkgs.wlr-randr}/bin/wlr-randr --output eDP-1 --mode 2560x1600
+        # Nota: Para restaurar al cerrar, Sunshine ejecuta las líneas secuencialmente, 
+        # pero por defecto 'prep_cmd' ejecuta todo al inicio o usa la lógica de retrollamada.
       '';
     };
   };

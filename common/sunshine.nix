@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    # ... tus otros paquetes ...
+    wlr-randr
+  ];
   services.sunshine = {
     enable = true;
     autoStart = true;

@@ -6,10 +6,6 @@
     autoStart = true;
     openFirewall = true;
     capSysAdmin = true;
-  
-    settings = {
-      prep_cmd = "${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor output.eDP-1.mode.15 && ${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor output.eDP-1.mode.1";
-    };
   };
   
   # Forzar las variables y asegurar que reinicie si falla al arrancar por tiempo

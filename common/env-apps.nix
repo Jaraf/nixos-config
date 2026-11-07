@@ -45,6 +45,7 @@
     kdePackages.sddm-kcm
     pciutils
     # pulseaudio
+    unrar
     usbutils
     vim
     vlc
